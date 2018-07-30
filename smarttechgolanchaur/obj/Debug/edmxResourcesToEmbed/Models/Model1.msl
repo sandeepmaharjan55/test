@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="villageprofileModelStoreContainer" CdmEntityContainer="villageprofileEntities">
+    <EntitySetMapping Name="api_users">
+      <EntityTypeMapping TypeName="villageprofileModel.api_users">
+        <MappingFragment StoreEntitySet="api_users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="verified" ColumnName="verified" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="profile_picture" ColumnName="profile_picture" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="social_id" ColumnName="social_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="articles">
+      <EntityTypeMapping TypeName="villageprofileModel.article">
+        <MappingFragment StoreEntitySet="articles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="audits">
+      <EntityTypeMapping TypeName="villageprofileModel.audit">
+        <MappingFragment StoreEntitySet="audits">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="event" ColumnName="event" />
+          <ScalarProperty Name="auditable_id" ColumnName="auditable_id" />
+          <ScalarProperty Name="auditable_type" ColumnName="auditable_type" />
+          <ScalarProperty Name="old_values" ColumnName="old_values" />
+          <ScalarProperty Name="new_values" ColumnName="new_values" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="ip_address" ColumnName="ip_address" />
+          <ScalarProperty Name="user_agent" ColumnName="user_agent" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="villageprofileModel.category">
+        <MappingFragment StoreEntitySet="categories">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="countries">
+      <EntityTypeMapping TypeName="villageprofileModel.country">
+        <MappingFragment StoreEntitySet="countries">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="alpha_code" ColumnName="alpha_code" />
+          <ScalarProperty Name="alpha_code_3" ColumnName="alpha_code_3" />
+          <ScalarProperty Name="native_name" ColumnName="native_name" />
+          <ScalarProperty Name="alternate_spellings" ColumnName="alternate_spellings" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="custom_settings">
+      <EntityTypeMapping TypeName="villageprofileModel.custom_settings">
+        <MappingFragment StoreEntitySet="custom_settings">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="label" ColumnName="label" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="email_templates">
+      <EntityTypeMapping TypeName="villageprofileModel.email_templates">
+        <MappingFragment StoreEntitySet="email_templates">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="template" ColumnName="template" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="from" ColumnName="from" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="galleries">
+      <EntityTypeMapping TypeName="villageprofileModel.gallery">
+        <MappingFragment StoreEntitySet="galleries">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gallery_lang_contents">
+      <EntityTypeMapping TypeName="villageprofileModel.gallery_lang_contents">
+        <MappingFragment StoreEntitySet="gallery_lang_contents">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gallery_id" ColumnName="gallery_id" />
+          <ScalarProperty Name="lang_id" ColumnName="lang_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="html_title" ColumnName="html_title" />
+          <ScalarProperty Name="html_description" ColumnName="html_description" />
+          <ScalarProperty Name="html_keywords" ColumnName="html_keywords" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lang_translations">
+      <EntityTypeMapping TypeName="villageprofileModel.lang_translations">
+        <MappingFragment StoreEntitySet="lang_translations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="word_id" ColumnName="word_id" />
+          <ScalarProperty Name="language_id" ColumnName="language_id" />
+          <ScalarProperty Name="translate_word" ColumnName="translate_word" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lang_words">
+      <EntityTypeMapping TypeName="villageprofileModel.lang_words">
+        <MappingFragment StoreEntitySet="lang_words">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="word" ColumnName="word" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="languages">
+      <EntityTypeMapping TypeName="villageprofileModel.language">
+        <MappingFragment StoreEntitySet="language">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="short_code" ColumnName="short_code" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="language_category">
+      <EntityTypeMapping TypeName="villageprofileModel.language_category">
+        <MappingFragment StoreEntitySet="language_category">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="default_lang" ColumnName="default_lang" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="login_logs">
+      <EntityTypeMapping TypeName="villageprofileModel.login_logs">
+        <MappingFragment StoreEntitySet="login_logs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="isp" ColumnName="isp" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="lon" ColumnName="lon" />
+          <ScalarProperty Name="timezone" ColumnName="timezone" />
+          <ScalarProperty Name="region_name" ColumnName="region_name" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logs">
+      <EntityTypeMapping TypeName="villageprofileModel.log">
+        <MappingFragment StoreEntitySet="logs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="module" ColumnName="module" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="migrations">
+      <EntityTypeMapping TypeName="villageprofileModel.migration">
+        <MappingFragment StoreEntitySet="migrations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="migration1" ColumnName="migration" />
+          <ScalarProperty Name="batch" ColumnName="batch" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oauth_access_tokens">
+      <EntityTypeMapping TypeName="villageprofileModel.oauth_access_tokens">
+        <MappingFragment StoreEntitySet="oauth_access_tokens">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="scopes" ColumnName="scopes" />
+          <ScalarProperty Name="revoked" ColumnName="revoked" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="expires_at" ColumnName="expires_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oauth_auth_codes">
+      <EntityTypeMapping TypeName="villageprofileModel.oauth_auth_codes">
+        <MappingFragment StoreEntitySet="oauth_auth_codes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+          <ScalarProperty Name="scopes" ColumnName="scopes" />
+          <ScalarProperty Name="revoked" ColumnName="revoked" />
+          <ScalarProperty Name="expires_at" ColumnName="expires_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oauth_clients">
+      <EntityTypeMapping TypeName="villageprofileModel.oauth_clients">
+        <MappingFragment StoreEntitySet="oauth_clients">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="secret" ColumnName="secret" />
+          <ScalarProperty Name="redirect" ColumnName="redirect" />
+          <ScalarProperty Name="personal_access_client" ColumnName="personal_access_client" />
+          <ScalarProperty Name="password_client" ColumnName="password_client" />
+          <ScalarProperty Name="revoked" ColumnName="revoked" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oauth_personal_access_clients">
+      <EntityTypeMapping TypeName="villageprofileModel.oauth_personal_access_clients">
+        <MappingFragment StoreEntitySet="oauth_personal_access_clients">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oauth_refresh_tokens">
+      <EntityTypeMapping TypeName="villageprofileModel.oauth_refresh_tokens">
+        <MappingFragment StoreEntitySet="oauth_refresh_tokens">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="access_token_id" ColumnName="access_token_id" />
+          <ScalarProperty Name="revoked" ColumnName="revoked" />
+          <ScalarProperty Name="expires_at" ColumnName="expires_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="owner_members">
+      <EntityTypeMapping TypeName="villageprofileModel.owner_members">
+        <MappingFragment StoreEntitySet="owner_members">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="owner_id" ColumnName="owner_id" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+          <ScalarProperty Name="cast" ColumnName="cast" />
+          <ScalarProperty Name="profession" ColumnName="profession" />
+          <ScalarProperty Name="profession_position" ColumnName="profession_position" />
+          <ScalarProperty Name="religion" ColumnName="religion" />
+          <ScalarProperty Name="education" ColumnName="education" />
+          <ScalarProperty Name="living_place" ColumnName="living_place" />
+          <ScalarProperty Name="abroad_occupation" ColumnName="abroad_occupation" />
+          <ScalarProperty Name="health_condition" ColumnName="health_condition" />
+          <ScalarProperty Name="physical_disability_condition" ColumnName="physical_disability_condition" />
+          <ScalarProperty Name="marriage_status" ColumnName="marriage_status" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="page_lang_contents">
+      <EntityTypeMapping TypeName="villageprofileModel.page_lang_contents">
+        <MappingFragment StoreEntitySet="page_lang_contents">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="page_id" ColumnName="page_id" />
+          <ScalarProperty Name="lang_id" ColumnName="lang_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="short_description" ColumnName="short_description" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="background_image" ColumnName="background_image" />
+          <ScalarProperty Name="html_title" ColumnName="html_title" />
+          <ScalarProperty Name="html_description" ColumnName="html_description" />
+          <ScalarProperty Name="html_keywords" ColumnName="html_keywords" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pages">
+      <EntityTypeMapping TypeName="villageprofileModel.page">
+        <MappingFragment StoreEntitySet="pages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+          <ScalarProperty Name="gallery_id" ColumnName="gallery_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permissions">
+      <EntityTypeMapping TypeName="villageprofileModel.permission">
+        <MappingFragment StoreEntitySet="permissions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="photo_lang_contents">
+      <EntityTypeMapping TypeName="villageprofileModel.photo_lang_contents">
+        <MappingFragment StoreEntitySet="photo_lang_contents">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="photo_id" ColumnName="photo_id" />
+          <ScalarProperty Name="lang_id" ColumnName="lang_id" />
+          <ScalarProperty Name="caption" ColumnName="caption" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="photos">
+      <EntityTypeMapping TypeName="villageprofileModel.photo">
+        <MappingFragment StoreEntitySet="photos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="gallery_id" ColumnName="gallery_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="villageprofileModel.role">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="permissions" ColumnName="permissions" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="security_settings">
+      <EntityTypeMapping TypeName="villageprofileModel.security_settings">
+        <MappingFragment StoreEntitySet="security_settings">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="target" ColumnName="target" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="settings">
+      <EntityTypeMapping TypeName="villageprofileModel.setting">
+        <MappingFragment StoreEntitySet="settings">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="meta_title" ColumnName="meta_title" />
+          <ScalarProperty Name="meta_keywords" ColumnName="meta_keywords" />
+          <ScalarProperty Name="meta_descriptions" ColumnName="meta_descriptions" />
+          <ScalarProperty Name="phone1" ColumnName="phone1" />
+          <ScalarProperty Name="phone2" ColumnName="phone2" />
+          <ScalarProperty Name="mobile_no" ColumnName="mobile_no" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="public_email" ColumnName="public_email" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="fb_link" ColumnName="fb_link" />
+          <ScalarProperty Name="twitter_link" ColumnName="twitter_link" />
+          <ScalarProperty Name="youtube_link" ColumnName="youtube_link" />
+          <ScalarProperty Name="skype_link" ColumnName="skype_link" />
+          <ScalarProperty Name="instagram_link" ColumnName="instagram_link" />
+          <ScalarProperty Name="main_title" ColumnName="main_title" />
+          <ScalarProperty Name="secondary_title" ColumnName="secondary_title" />
+          <ScalarProperty Name="time_zone" ColumnName="time_zone" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="system_languages">
+      <EntityTypeMapping TypeName="villageprofileModel.system_languages">
+        <MappingFragment StoreEntitySet="system_languages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="language_id" ColumnName="language_id" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="table_house_senior_details">
+      <EntityTypeMapping TypeName="villageprofileModel.table_house_senior_details">
+        <MappingFragment StoreEntitySet="table_house_senior_details">
+          <ScalarProperty Name="senior_id" ColumnName="senior_id" />
+          <ScalarProperty Name="Home_no" ColumnName="Home_no" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="image_path" ColumnName="image_path" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="Contact_no" ColumnName="Contact_no" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="BirthPlace" ColumnName="BirthPlace" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="currentliving" ColumnName="currentliving" />
+          <ScalarProperty Name="health" ColumnName="health" />
+          <ScalarProperty Name="religion" ColumnName="religion" />
+          <ScalarProperty Name="CitizenShip_no" ColumnName="CitizenShip_no" />
+          <ScalarProperty Name="CitizenshipIssue_district" ColumnName="CitizenshipIssue_district" />
+          <ScalarProperty Name="citizenissue_date" ColumnName="citizenissue_date" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="uttardata_naam" ColumnName="uttardata_naam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_address">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_address">
+        <MappingFragment StoreEntitySet="tbl_address">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_cast">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_cast">
+        <MappingFragment StoreEntitySet="tbl_cast">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cast" ColumnName="cast" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_education">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_education">
+        <MappingFragment StoreEntitySet="tbl_education">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="education" ColumnName="education" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_gender">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_gender">
+        <MappingFragment StoreEntitySet="tbl_gender">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_health_condition">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_health_condition">
+        <MappingFragment StoreEntitySet="tbl_health_condition">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="health_condition" ColumnName="health_condition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_house_details">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_house_details">
+        <MappingFragment StoreEntitySet="tbl_house_details">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ghar_number" ColumnName="ghar_number" />
+          <ScalarProperty Name="old_gabisa" ColumnName="old_gabisa" />
+          <ScalarProperty Name="old_ward_number" ColumnName="old_ward_number" />
+          <ScalarProperty Name="tole" ColumnName="tole" />
+          <ScalarProperty Name="house_latitude" ColumnName="house_latitude" />
+          <ScalarProperty Name="house_longitude" ColumnName="house_longitude" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="house_owner_name" ColumnName="house_owner_name" />
+          <ScalarProperty Name="total_house_member" ColumnName="total_house_member" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_house_owner_infos">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_house_owner_infos">
+        <MappingFragment StoreEntitySet="tbl_house_owner_infos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ghar_number" ColumnName="ghar_number" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="education" ColumnName="education" />
+          <ScalarProperty Name="profession" ColumnName="profession" />
+          <ScalarProperty Name="mobile_number" ColumnName="mobile_number" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+          <ScalarProperty Name="birth_place" ColumnName="birth_place" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="temporary_address" ColumnName="temporary_address" />
+          <ScalarProperty Name="health" ColumnName="health" />
+          <ScalarProperty Name="religion" ColumnName="religion" />
+          <ScalarProperty Name="citizenship_number" ColumnName="citizenship_number" />
+          <ScalarProperty Name="citizenship_release_date" ColumnName="citizenship_release_date" />
+          <ScalarProperty Name="citizenship_release_district" ColumnName="citizenship_release_district" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_marriage_condition">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_marriage_condition">
+        <MappingFragment StoreEntitySet="tbl_marriage_condition">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="marriage_condition" ColumnName="marriage_condition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_mothertounge">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_mothertounge">
+        <MappingFragment StoreEntitySet="tbl_mothertounge">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="language" ColumnName="language" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_physical_condition">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_physical_condition">
+        <MappingFragment StoreEntitySet="tbl_physical_condition">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="physically_condition" ColumnName="physically_condition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_profession">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_profession">
+        <MappingFragment StoreEntitySet="tbl_profession">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="profession" ColumnName="profession" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_religion">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_religion">
+        <MappingFragment StoreEntitySet="tbl_religion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="religion" ColumnName="religion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="villageprofileModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="security" ColumnName="security" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+          <ScalarProperty Name="permissions" ColumnName="permissions" />
+          <ScalarProperty Name="remember_token" ColumnName="remember_token" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="verification_code" ColumnName="verification_code" />
+          <ScalarProperty Name="global_setting" ColumnName="global_setting" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="password_resets">
+      <EntityTypeMapping TypeName="villageprofileModel.password_resets">
+        <MappingFragment StoreEntitySet="password_resets">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="role_user">
+      <EntityTypeMapping TypeName="villageprofileModel.role_user">
+        <MappingFragment StoreEntitySet="role_user">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,657 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="villageprofileModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="api_users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="191" />
+    <Property Name="gender" Type="varchar" MaxLength="191" />
+    <Property Name="verified" Type="bool" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="191" />
+    <Property Name="password" Type="varchar" MaxLength="191" />
+    <Property Name="phone_number" Type="varchar" MaxLength="191" />
+    <Property Name="profile_picture" Type="varchar" MaxLength="191" />
+    <Property Name="type" Type="varchar" MaxLength="191" />
+    <Property Name="social_id" Type="varchar" MaxLength="191" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'def.villageprofile.article_categories' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="article_categories">
+          <Property Name="article_id" Type="uint" />
+          <Property Name="category_id" Type="uint" />
+        </EntityType>-->
+  <EntityType Name="articles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="191" />
+    <Property Name="author" Type="varchar" MaxLength="191" />
+    <Property Name="status" Type="varchar" MaxLength="191" />
+    <Property Name="price" Type="double" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="audits">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="uint" />
+    <Property Name="event" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="auditable_id" Type="uint" Nullable="false" />
+    <Property Name="auditable_type" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="old_values" Type="text" />
+    <Property Name="new_values" Type="text" />
+    <Property Name="url" Type="text" />
+    <Property Name="ip_address" Type="varchar" MaxLength="45" />
+    <Property Name="user_agent" Type="varchar" MaxLength="191" />
+    <Property Name="tags" Type="varchar" MaxLength="191" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="countries">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="191" />
+    <Property Name="alpha_code" Type="varchar" MaxLength="191" />
+    <Property Name="alpha_code_3" Type="varchar" MaxLength="191" />
+    <Property Name="native_name" Type="varchar" MaxLength="191" />
+    <Property Name="alternate_spellings" Type="text" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="custom_settings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="label" Type="varchar" MaxLength="191" />
+    <Property Name="value" Type="longtext" />
+    <Property Name="type" Type="varchar" MaxLength="191" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="email_templates">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="191" />
+    <Property Name="code" Type="varchar" MaxLength="191" />
+    <Property Name="subject" Type="varchar" MaxLength="191" />
+    <Property Name="template" Type="longtext" />
+    <Property Name="type" Type="varchar" MaxLength="191" />
+    <Property Name="from" Type="varchar" MaxLength="191" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="galleries">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="slug" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="status" Type="enum" Nullable="false" />
+    <Property Name="position" Type="int" />
+    <Property Name="image" Type="varchar" MaxLength="191" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="gallery_lang_contents">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gallery_id" Type="uint" />
+    <Property Name="lang_id" Type="uint" />
+    <Property Name="title" Type="varchar" MaxLength="191" />
+    <Property Name="description" Type="varchar" MaxLength="191" />
+    <Property Name="html_title" Type="varchar" MaxLength="191" />
+    <Property Name="html_description" Type="varchar" MaxLength="191" />
+    <Property Name="html_keywords" Type="varchar" MaxLength="191" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="lang_translations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="word_id" Type="uint" Nullable="false" />
+    <Property Name="language_id" Type="uint" Nullable="false" />
+    <Property Name="translate_word" Type="varchar" MaxLength="191" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="lang_words">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="word" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="language">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="short_code" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="flag" Type="varchar" MaxLength="191" />
+    <Property Name="status" Type="enum" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="language_category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="default_lang" Type="int" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="login_logs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="ip" Type="varchar" MaxLength="191" />
+    <Property Name="city" Type="varchar" MaxLength="191" />
+    <Property Name="country" Type="varchar" MaxLength="191" />
+    <Property Name="isp" Type="varchar" MaxLength="191" />
+    <Property Name="lat" Type="varchar" MaxLength="191" />
+    <Property Name="lon" Type="varchar" MaxLength="191" />
+    <Property Name="timezone" Type="varchar" MaxLength="191" />
+    <Property Name="region_name" Type="varchar" MaxLength="191" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="logs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="uint" Nullable="false" />
+    <Property Name="module" Type="varchar" MaxLength="191" />
+    <Property Name="data" Type="text" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="migrations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="migration" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="batch" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="oauth_access_tokens">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="client_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="191" />
+    <Property Name="scopes" Type="text" />
+    <Property Name="revoked" Type="bool" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="expires_at" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="oauth_auth_codes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="client_id" Type="int" Nullable="false" />
+    <Property Name="scopes" Type="text" />
+    <Property Name="revoked" Type="bool" Nullable="false" />
+    <Property Name="expires_at" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="oauth_clients">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="name" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="secret" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="redirect" Type="text" Nullable="false" />
+    <Property Name="personal_access_client" Type="bool" Nullable="false" />
+    <Property Name="password_client" Type="bool" Nullable="false" />
+    <Property Name="revoked" Type="bool" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="oauth_personal_access_clients">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="client_id" Type="int" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="oauth_refresh_tokens">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="access_token_id" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="revoked" Type="bool" Nullable="false" />
+    <Property Name="expires_at" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="owner_members">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="owner_id" Type="uint" />
+    <Property Name="full_name" Type="varchar" MaxLength="191" />
+    <Property Name="gender" Type="varchar" MaxLength="191" />
+    <Property Name="date_of_birth" Type="date" />
+    <Property Name="cast" Type="varchar" MaxLength="191" />
+    <Property Name="profession" Type="varchar" MaxLength="191" />
+    <Property Name="profession_position" Type="varchar" MaxLength="191" />
+    <Property Name="religion" Type="varchar" MaxLength="191" />
+    <Property Name="education" Type="varchar" MaxLength="191" />
+    <Property Name="living_place" Type="varchar" MaxLength="191" />
+    <Property Name="abroad_occupation" Type="varchar" MaxLength="191" />
+    <Property Name="health_condition" Type="int" />
+    <Property Name="physical_disability_condition" Type="varchar" MaxLength="191" />
+    <Property Name="marriage_status" Type="int" />
+    <Property Name="language" Type="int" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="page_lang_contents">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="page_id" Type="uint" Nullable="false" />
+    <Property Name="lang_id" Type="uint" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="short_description" Type="varchar" MaxLength="191" />
+    <Property Name="description" Type="text" />
+    <Property Name="background_image" Type="varchar" MaxLength="191" />
+    <Property Name="html_title" Type="varchar" MaxLength="191" />
+    <Property Name="html_description" Type="varchar" MaxLength="191" />
+    <Property Name="html_keywords" Type="varchar" MaxLength="191" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="pages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="parent_id" Type="int" />
+    <Property Name="slug" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="gallery_id" Type="int" />
+    <Property Name="status" Type="enum" Nullable="false" />
+    <Property Name="position" Type="uint" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="title" Type="varchar" MaxLength="191" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.villageprofile.password_resets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="password_resets">
+    <Key>
+      <PropertyRef Name="email" />
+      <PropertyRef Name="token" />
+    </Key>
+    <Property Name="email" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="token" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="permissions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="slug" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="photo_lang_contents">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="photo_id" Type="uint" Nullable="false" />
+    <Property Name="lang_id" Type="uint" Nullable="false" />
+    <Property Name="caption" Type="varchar" MaxLength="191" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="photos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="image" Type="varchar" MaxLength="191" />
+    <Property Name="status" Type="enum" Nullable="false" />
+    <Property Name="position" Type="int" />
+    <Property Name="gallery_id" Type="uint" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.villageprofile.role_user' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="role_user">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="user_id" Type="uint" Nullable="false" />
+    <Property Name="role_id" Type="uint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="permissions" Type="longtext" />
+    <Property Name="role_id" Type="varchar" MaxLength="191" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="deleted_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="security_settings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="target" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="settings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="meta_title" Type="varchar" MaxLength="191" />
+    <Property Name="meta_keywords" Type="text" />
+    <Property Name="meta_descriptions" Type="text" />
+    <Property Name="phone1" Type="varchar" MaxLength="191" />
+    <Property Name="phone2" Type="varchar" MaxLength="191" />
+    <Property Name="mobile_no" Type="varchar" MaxLength="191" />
+    <Property Name="email" Type="varchar" MaxLength="191" />
+    <Property Name="public_email" Type="varchar" MaxLength="191" />
+    <Property Name="latitude" Type="varchar" MaxLength="191" />
+    <Property Name="longitude" Type="varchar" MaxLength="191" />
+    <Property Name="fb_link" Type="varchar" MaxLength="191" />
+    <Property Name="twitter_link" Type="varchar" MaxLength="191" />
+    <Property Name="youtube_link" Type="varchar" MaxLength="191" />
+    <Property Name="skype_link" Type="varchar" MaxLength="191" />
+    <Property Name="instagram_link" Type="varchar" MaxLength="191" />
+    <Property Name="main_title" Type="varchar" MaxLength="191" />
+    <Property Name="secondary_title" Type="varchar" MaxLength="191" />
+    <Property Name="time_zone" Type="varchar" MaxLength="191" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="system_languages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="language_id" Type="uint" Nullable="false" />
+    <Property Name="category_id" Type="uint" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="table_house_senior_details">
+    <Key>
+      <PropertyRef Name="senior_id" />
+    </Key>
+    <Property Name="senior_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Home_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="latitude" Type="varchar" MaxLength="256" />
+    <Property Name="longitude" Type="varchar" MaxLength="256" />
+    <Property Name="image_path" Type="varchar" MaxLength="256" />
+    <Property Name="Education" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Occupation" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Contact_no" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="DOB" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="BirthPlace" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="20" />
+    <Property Name="currentliving" Type="varchar" MaxLength="100" />
+    <Property Name="health" Type="varchar" MaxLength="100" />
+    <Property Name="religion" Type="varchar" MaxLength="50" />
+    <Property Name="CitizenShip_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CitizenshipIssue_district" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="citizenissue_date" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="uttardata_naam" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_address">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="tbl_cast">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cast" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="tbl_education">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="education" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="tbl_gender">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gender" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="tbl_health_condition">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="health_condition" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="tbl_house_details">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ghar_number" Type="int" Nullable="false" />
+    <Property Name="old_gabisa" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="old_ward_number" Type="int" Nullable="false" />
+    <Property Name="tole" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="house_latitude" Type="double" Nullable="false" />
+    <Property Name="house_longitude" Type="double" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="house_owner_name" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="total_house_member" Type="int" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="tbl_house_owner_infos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ghar_number" Type="int" Nullable="false" />
+    <Property Name="full_name" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="education" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="profession" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="mobile_number" Type="int" Nullable="false" />
+    <Property Name="date_of_birth" Type="date" Nullable="false" />
+    <Property Name="birth_place" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="gender" Type="enum" Nullable="false" />
+    <Property Name="temporary_address" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="health" Type="text" Nullable="false" />
+    <Property Name="religion" Type="enum" Nullable="false" />
+    <Property Name="citizenship_number" Type="int" Nullable="false" />
+    <Property Name="citizenship_release_date" Type="date" Nullable="false" />
+    <Property Name="citizenship_release_district" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="tbl_marriage_condition">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marriage_condition" Type="varchar" MaxLength="191" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mothertounge">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="language" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="tbl_physical_condition">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="physically_condition" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="tbl_profession">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="profession" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="tbl_religion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="religion" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="first_name" Type="varchar" MaxLength="191" />
+    <Property Name="last_name" Type="varchar" MaxLength="191" />
+    <Property Name="username" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="status" Type="bool" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="ip" Type="varchar" MaxLength="191" />
+    <Property Name="city" Type="varchar" MaxLength="191" />
+    <Property Name="country" Type="varchar" MaxLength="191" />
+    <Property Name="security" Type="int" />
+    <Property Name="created_by" Type="varchar" MaxLength="191" />
+    <Property Name="updated_by" Type="varchar" MaxLength="191" />
+    <Property Name="permissions" Type="longtext" />
+    <Property Name="remember_token" Type="varchar" MaxLength="100" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="deleted_at" Type="timestamp" Precision="0" />
+    <Property Name="image" Type="varchar" MaxLength="191" />
+    <Property Name="verification_code" Type="varchar" MaxLength="191" />
+    <Property Name="global_setting" Type="varchar" MaxLength="191" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+error 6004: The table 'def.villageprofile.article_categories' is referenced by a relationship, but cannot be found.
+        <Association Name="article_categories_article_id_foreign" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'def.villageprofile.article_categories' is referenced by a relationship, but cannot be found.
+        <Association Name="article_categories_category_id_foreign" />-->
+  <EntityContainer Name="villageprofileModelStoreContainer">
+    <EntitySet Name="api_users" EntityType="Self.api_users" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="articles" EntityType="Self.articles" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="audits" EntityType="Self.audits" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="categories" EntityType="Self.categories" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="countries" EntityType="Self.countries" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="custom_settings" EntityType="Self.custom_settings" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="email_templates" EntityType="Self.email_templates" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="galleries" EntityType="Self.galleries" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="gallery_lang_contents" EntityType="Self.gallery_lang_contents" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="lang_translations" EntityType="Self.lang_translations" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="lang_words" EntityType="Self.lang_words" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="language" EntityType="Self.language" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="language_category" EntityType="Self.language_category" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="login_logs" EntityType="Self.login_logs" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="logs" EntityType="Self.logs" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="migrations" EntityType="Self.migrations" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="oauth_access_tokens" EntityType="Self.oauth_access_tokens" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="oauth_auth_codes" EntityType="Self.oauth_auth_codes" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="oauth_clients" EntityType="Self.oauth_clients" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="oauth_personal_access_clients" EntityType="Self.oauth_personal_access_clients" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="oauth_refresh_tokens" EntityType="Self.oauth_refresh_tokens" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="owner_members" EntityType="Self.owner_members" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="page_lang_contents" EntityType="Self.page_lang_contents" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="pages" EntityType="Self.pages" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="permissions" EntityType="Self.permissions" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="photo_lang_contents" EntityType="Self.photo_lang_contents" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="photos" EntityType="Self.photos" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="security_settings" EntityType="Self.security_settings" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="settings" EntityType="Self.settings" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="system_languages" EntityType="Self.system_languages" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="table_house_senior_details" EntityType="Self.table_house_senior_details" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_address" EntityType="Self.tbl_address" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_cast" EntityType="Self.tbl_cast" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_education" EntityType="Self.tbl_education" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_gender" EntityType="Self.tbl_gender" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_health_condition" EntityType="Self.tbl_health_condition" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_house_details" EntityType="Self.tbl_house_details" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_house_owner_infos" EntityType="Self.tbl_house_owner_infos" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_marriage_condition" EntityType="Self.tbl_marriage_condition" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_mothertounge" EntityType="Self.tbl_mothertounge" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_physical_condition" EntityType="Self.tbl_physical_condition" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_profession" EntityType="Self.tbl_profession" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_religion" EntityType="Self.tbl_religion" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="password_resets" EntityType="Self.password_resets" store:Type="Tables" store:Schema="villageprofile">
+      <DefiningQuery>SELECT
+`password_resets`.`email`, 
+`password_resets`.`token`, 
+`password_resets`.`created_at`
+FROM `password_resets` AS `password_resets`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="role_user" EntityType="Self.role_user" store:Type="Tables" store:Schema="villageprofile">
+      <DefiningQuery>SELECT
+`role_user`.`user_id`, 
+`role_user`.`role_id`
+FROM `role_user` AS `role_user`</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
