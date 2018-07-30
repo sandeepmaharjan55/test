@@ -1,0 +1,123 @@
+﻿@model IEnumerable<smarttechgolanchaur.Models.tbl_house_owner_infos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ghar_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.full_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.education)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.profession)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mobile_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_of_birth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.birth_place)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.temporary_address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.health)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.religion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.citizenship_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.citizenship_release_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.citizenship_release_district)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.created_at)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updated_at)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ghar_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.full_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.education)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.profession)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mobile_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_of_birth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.birth_place)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.temporary_address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.health)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.religion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.citizenship_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.citizenship_release_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.citizenship_release_district)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.created_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updated_at)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
