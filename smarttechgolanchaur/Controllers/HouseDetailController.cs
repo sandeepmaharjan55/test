@@ -51,7 +51,21 @@ namespace smarttechgolanchaur.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.tbl_house_details.Add(tbl_house_details);
+
+                db.tbl_house_details.Add(new tbl_house_details()
+                {
+                    ghar_number = tbl_house_details.ghar_number,
+                    old_gabisa = tbl_house_details.old_gabisa,
+                    old_ward_number = tbl_house_details.old_ward_number,
+                    tole = tbl_house_details.tole,
+                    house_latitude = tbl_house_details.house_latitude,
+                    house_longitude= tbl_house_details.house_longitude,
+                    code = tbl_house_details.code,
+                    house_owner_name = tbl_house_details.house_owner_name,
+                    total_house_member = tbl_house_details.total_house_member,
+                    created_at = DateTime.Now,
+                    updated_at = DateTime.Now
+                });
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -83,7 +97,21 @@ namespace smarttechgolanchaur.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tbl_house_details).State = EntityState.Modified;
+                var house = new tbl_house_details {
+                    id=tbl_house_details.id,
+                    ghar_number = tbl_house_details.ghar_number,
+                    old_gabisa = tbl_house_details.old_gabisa,
+                    old_ward_number = tbl_house_details.old_ward_number,
+                    tole = tbl_house_details.tole,
+                    house_latitude = tbl_house_details.house_latitude,
+                    house_longitude= tbl_house_details.house_longitude,
+                    code = tbl_house_details.code,
+                    house_owner_name = tbl_house_details.house_owner_name,
+                    total_house_member = tbl_house_details.total_house_member,
+                    created_at=tbl_house_details.created_at,
+                    updated_at = DateTime.Now
+                };
+              db.Entry(house).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

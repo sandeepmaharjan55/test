@@ -6814,3 +6814,14 @@ td.visible-print {
     display: none !important;
   }
 }
+
+/*own css from here*/
+
+.required:after 
+{
+    content: "*";
+    font-weight: bold;
+    color: red; 
+}
+
+
