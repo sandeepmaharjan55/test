@@ -100,6 +100,18 @@ warning 6013: The table/view 'def.villageprofile.article_categories' does not ha
     <Property Name="created_at" Type="timestamp" Precision="0" />
     <Property Name="updated_at" Type="timestamp" Precision="0" />
   </EntityType>
+  <EntityType Name="emergency_services">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="service_name" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="contact_number" Type="double" Nullable="false" />
+    <Property Name="service_center_latitude" Type="double" Nullable="false" />
+    <Property Name="service_center_longitude" Type="double" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
   <EntityType Name="galleries">
     <Key>
       <PropertyRef Name="id" />
@@ -262,29 +274,6 @@ warning 6013: The table/view 'def.villageprofile.article_categories' does not ha
     <Property Name="access_token_id" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="revoked" Type="bool" Nullable="false" />
     <Property Name="expires_at" Type="datetime" Precision="0" />
-  </EntityType>
-  <EntityType Name="owner_members">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="owner_id" Type="uint" />
-    <Property Name="full_name" Type="varchar" MaxLength="191" />
-    <Property Name="gender" Type="varchar" MaxLength="191" />
-    <Property Name="date_of_birth" Type="date" />
-    <Property Name="cast" Type="varchar" MaxLength="191" />
-    <Property Name="profession" Type="varchar" MaxLength="191" />
-    <Property Name="profession_position" Type="varchar" MaxLength="191" />
-    <Property Name="religion" Type="varchar" MaxLength="191" />
-    <Property Name="education" Type="varchar" MaxLength="191" />
-    <Property Name="living_place" Type="varchar" MaxLength="191" />
-    <Property Name="abroad_occupation" Type="varchar" MaxLength="191" />
-    <Property Name="health_condition" Type="int" />
-    <Property Name="physical_disability_condition" Type="varchar" MaxLength="191" />
-    <Property Name="marriage_status" Type="int" />
-    <Property Name="language" Type="int" />
-    <Property Name="created_at" Type="timestamp" Precision="0" />
-    <Property Name="updated_at" Type="timestamp" Precision="0" />
   </EntityType>
   <EntityType Name="page_lang_contents">
     <Key>
@@ -474,6 +463,48 @@ warning 6002: The table/view 'def.villageprofile.role_user' does not have a prim
     <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="education" Type="varchar" MaxLength="191" />
   </EntityType>
+  <EntityType Name="tbl_family_bank_accounts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="family_bank_account" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="tbl_family_cooking_resources">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="191" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_family_light_resources">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="tbl_family_toilet_resources">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="191" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_familymember_insurance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="tbl_familymember_water_resources">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="191" />
+  </EntityType>
   <EntityType Name="tbl_gender">
     <Key>
       <PropertyRef Name="id" />
@@ -527,6 +558,20 @@ warning 6002: The table/view 'def.villageprofile.role_user' does not have a prim
     <Property Name="created_at" Type="timestamp" Precision="0" />
     <Property Name="updated_at" Type="timestamp" Precision="0" />
   </EntityType>
+  <EntityType Name="tbl_jana_pratinidhi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ward_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="position" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="phone_no" Type="text" Nullable="false" />
+    <Property Name="image" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="order_by" Type="int" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+  </EntityType>
   <EntityType Name="tbl_marriage_condition">
     <Key>
       <PropertyRef Name="id" />
@@ -540,6 +585,29 @@ warning 6002: The table/view 'def.villageprofile.role_user' does not have a prim
     </Key>
     <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="language" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="tbl_owner_members">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="owner_id" Type="uint" />
+    <Property Name="full_name" Type="varchar" MaxLength="191" />
+    <Property Name="gender" Type="varchar" MaxLength="191" />
+    <Property Name="date_of_birth" Type="date" />
+    <Property Name="cast" Type="varchar" MaxLength="191" />
+    <Property Name="profession" Type="varchar" MaxLength="191" />
+    <Property Name="profession_position" Type="varchar" MaxLength="191" />
+    <Property Name="religion" Type="varchar" MaxLength="191" />
+    <Property Name="education" Type="varchar" MaxLength="191" />
+    <Property Name="living_place" Type="varchar" MaxLength="191" />
+    <Property Name="abroad_occupation" Type="varchar" MaxLength="191" />
+    <Property Name="health_condition" Type="int" />
+    <Property Name="physical_disability_condition" Type="varchar" MaxLength="191" />
+    <Property Name="marriage_status" Type="int" />
+    <Property Name="language" Type="varchar" MaxLength="191" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
   </EntityType>
   <EntityType Name="tbl_physical_condition">
     <Key>
@@ -561,6 +629,20 @@ warning 6002: The table/view 'def.villageprofile.role_user' does not have a prim
     </Key>
     <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="religion" Type="varchar" MaxLength="191" />
+  </EntityType>
+  <EntityType Name="tbl_ward">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ward_no" Type="int" Nullable="false" />
+    <Property Name="ward_name" Type="varchar" MaxLength="191" Nullable="false" />
+    <Property Name="population" Type="text" Nullable="false" />
+    <Property Name="area" Type="double" Nullable="false" />
+    <Property Name="ward_latitude" Type="double" Nullable="false" />
+    <Property Name="ward_longitude" Type="double" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
   </EntityType>
   <EntityType Name="users">
     <Key>
@@ -602,6 +684,7 @@ error 6004: The table 'def.villageprofile.article_categories' is referenced by a
     <EntitySet Name="countries" EntityType="Self.countries" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="custom_settings" EntityType="Self.custom_settings" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="email_templates" EntityType="Self.email_templates" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="emergency_services" EntityType="Self.emergency_services" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="galleries" EntityType="Self.galleries" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="gallery_lang_contents" EntityType="Self.gallery_lang_contents" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="lang_translations" EntityType="Self.lang_translations" Schema="villageprofile" store:Type="Tables" />
@@ -616,7 +699,6 @@ error 6004: The table 'def.villageprofile.article_categories' is referenced by a
     <EntitySet Name="oauth_clients" EntityType="Self.oauth_clients" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="oauth_personal_access_clients" EntityType="Self.oauth_personal_access_clients" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="oauth_refresh_tokens" EntityType="Self.oauth_refresh_tokens" Schema="villageprofile" store:Type="Tables" />
-    <EntitySet Name="owner_members" EntityType="Self.owner_members" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="page_lang_contents" EntityType="Self.page_lang_contents" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="pages" EntityType="Self.pages" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="permissions" EntityType="Self.permissions" Schema="villageprofile" store:Type="Tables" />
@@ -630,15 +712,24 @@ error 6004: The table 'def.villageprofile.article_categories' is referenced by a
     <EntitySet Name="tbl_address" EntityType="Self.tbl_address" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="tbl_cast" EntityType="Self.tbl_cast" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="tbl_education" EntityType="Self.tbl_education" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_family_bank_accounts" EntityType="Self.tbl_family_bank_accounts" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_family_cooking_resources" EntityType="Self.tbl_family_cooking_resources" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_family_light_resources" EntityType="Self.tbl_family_light_resources" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_family_toilet_resources" EntityType="Self.tbl_family_toilet_resources" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_familymember_insurance" EntityType="Self.tbl_familymember_insurance" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_familymember_water_resources" EntityType="Self.tbl_familymember_water_resources" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="tbl_gender" EntityType="Self.tbl_gender" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="tbl_health_condition" EntityType="Self.tbl_health_condition" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="tbl_house_details" EntityType="Self.tbl_house_details" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="tbl_house_owner_infos" EntityType="Self.tbl_house_owner_infos" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_jana_pratinidhi" EntityType="Self.tbl_jana_pratinidhi" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="tbl_marriage_condition" EntityType="Self.tbl_marriage_condition" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="tbl_mothertounge" EntityType="Self.tbl_mothertounge" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_owner_members" EntityType="Self.tbl_owner_members" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="tbl_physical_condition" EntityType="Self.tbl_physical_condition" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="tbl_profession" EntityType="Self.tbl_profession" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="tbl_religion" EntityType="Self.tbl_religion" Schema="villageprofile" store:Type="Tables" />
+    <EntitySet Name="tbl_ward" EntityType="Self.tbl_ward" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="villageprofile" store:Type="Tables" />
     <EntitySet Name="password_resets" EntityType="Self.password_resets" store:Type="Tables" store:Schema="villageprofile">
       <DefiningQuery>SELECT

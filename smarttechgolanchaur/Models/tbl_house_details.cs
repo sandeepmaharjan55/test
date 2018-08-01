@@ -11,12 +11,10 @@ namespace smarttechgolanchaur.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class tbl_house_details
     {
-        public long id { get; set; } 
+        public long id { get; set; }
         public int ghar_number { get; set; }
         public string old_gabisa { get; set; }
         public int old_ward_number { get; set; }

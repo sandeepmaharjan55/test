@@ -102,6 +102,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="emergency_services">
+      <EntityTypeMapping TypeName="villageprofileModel.emergency_services">
+        <MappingFragment StoreEntitySet="emergency_services">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="service_name" ColumnName="service_name" />
+          <ScalarProperty Name="contact_number" ColumnName="contact_number" />
+          <ScalarProperty Name="service_center_latitude" ColumnName="service_center_latitude" />
+          <ScalarProperty Name="service_center_longitude" ColumnName="service_center_longitude" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="galleries">
       <EntityTypeMapping TypeName="villageprofileModel.gallery">
         <MappingFragment StoreEntitySet="galleries">
@@ -276,30 +289,6 @@
           <ScalarProperty Name="access_token_id" ColumnName="access_token_id" />
           <ScalarProperty Name="revoked" ColumnName="revoked" />
           <ScalarProperty Name="expires_at" ColumnName="expires_at" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="owner_members">
-      <EntityTypeMapping TypeName="villageprofileModel.owner_members">
-        <MappingFragment StoreEntitySet="owner_members">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="owner_id" ColumnName="owner_id" />
-          <ScalarProperty Name="full_name" ColumnName="full_name" />
-          <ScalarProperty Name="gender" ColumnName="gender" />
-          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
-          <ScalarProperty Name="cast" ColumnName="cast" />
-          <ScalarProperty Name="profession" ColumnName="profession" />
-          <ScalarProperty Name="profession_position" ColumnName="profession_position" />
-          <ScalarProperty Name="religion" ColumnName="religion" />
-          <ScalarProperty Name="education" ColumnName="education" />
-          <ScalarProperty Name="living_place" ColumnName="living_place" />
-          <ScalarProperty Name="abroad_occupation" ColumnName="abroad_occupation" />
-          <ScalarProperty Name="health_condition" ColumnName="health_condition" />
-          <ScalarProperty Name="physical_disability_condition" ColumnName="physical_disability_condition" />
-          <ScalarProperty Name="marriage_status" ColumnName="marriage_status" />
-          <ScalarProperty Name="language" ColumnName="language" />
-          <ScalarProperty Name="created_at" ColumnName="created_at" />
-          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -483,6 +472,54 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_family_bank_accounts">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_family_bank_accounts">
+        <MappingFragment StoreEntitySet="tbl_family_bank_accounts">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="family_bank_account" ColumnName="family_bank_account" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_family_cooking_resources">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_family_cooking_resources">
+        <MappingFragment StoreEntitySet="tbl_family_cooking_resources">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_family_light_resources">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_family_light_resources">
+        <MappingFragment StoreEntitySet="tbl_family_light_resources">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_family_toilet_resources">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_family_toilet_resources">
+        <MappingFragment StoreEntitySet="tbl_family_toilet_resources">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_familymember_insurance">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_familymember_insurance">
+        <MappingFragment StoreEntitySet="tbl_familymember_insurance">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_familymember_water_resources">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_familymember_water_resources">
+        <MappingFragment StoreEntitySet="tbl_familymember_water_resources">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tbl_gender">
       <EntityTypeMapping TypeName="villageprofileModel.tbl_gender">
         <MappingFragment StoreEntitySet="tbl_gender">
@@ -540,6 +577,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_jana_pratinidhi">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_jana_pratinidhi">
+        <MappingFragment StoreEntitySet="tbl_jana_pratinidhi">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ward_id" ColumnName="ward_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="order_by" ColumnName="order_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tbl_marriage_condition">
       <EntityTypeMapping TypeName="villageprofileModel.tbl_marriage_condition">
         <MappingFragment StoreEntitySet="tbl_marriage_condition">
@@ -553,6 +605,30 @@
         <MappingFragment StoreEntitySet="tbl_mothertounge">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="language" ColumnName="language" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_owner_members">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_owner_members">
+        <MappingFragment StoreEntitySet="tbl_owner_members">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="owner_id" ColumnName="owner_id" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+          <ScalarProperty Name="cast" ColumnName="cast" />
+          <ScalarProperty Name="profession" ColumnName="profession" />
+          <ScalarProperty Name="profession_position" ColumnName="profession_position" />
+          <ScalarProperty Name="religion" ColumnName="religion" />
+          <ScalarProperty Name="education" ColumnName="education" />
+          <ScalarProperty Name="living_place" ColumnName="living_place" />
+          <ScalarProperty Name="abroad_occupation" ColumnName="abroad_occupation" />
+          <ScalarProperty Name="health_condition" ColumnName="health_condition" />
+          <ScalarProperty Name="physical_disability_condition" ColumnName="physical_disability_condition" />
+          <ScalarProperty Name="marriage_status" ColumnName="marriage_status" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -577,6 +653,21 @@
         <MappingFragment StoreEntitySet="tbl_religion">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="religion" ColumnName="religion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ward">
+      <EntityTypeMapping TypeName="villageprofileModel.tbl_ward">
+        <MappingFragment StoreEntitySet="tbl_ward">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ward_no" ColumnName="ward_no" />
+          <ScalarProperty Name="ward_name" ColumnName="ward_name" />
+          <ScalarProperty Name="population" ColumnName="population" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="ward_latitude" ColumnName="ward_latitude" />
+          <ScalarProperty Name="ward_longitude" ColumnName="ward_longitude" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

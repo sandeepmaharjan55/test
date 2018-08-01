@@ -40,6 +40,7 @@ namespace smarttechgolanchaur.Controllers
         {
             ViewBag.profession = new SelectList(db.tbl_profession, "id", "profession");
             ViewBag.religion = new SelectList(db.tbl_religion, "id", "religion");
+            ViewBag.health = new SelectList(db.tbl_health_condition, "id", "health_condition");
             return View();
         }
 
@@ -48,33 +49,66 @@ namespace smarttechgolanchaur.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,ghar_number,full_name,education,profession,mobile_number,date_of_birth,birth_place,gender,temporary_address,health,religion,citizenship_number,citizenship_release_date,citizenship_release_district,created_at,updated_at")] tbl_house_owner_infos tbl_house_owner_infos)
+        public ActionResult Create([Bind(Include = "id,ghar_number,full_name,education,profession,mobile_number,date_of_birth,birth_place,gender,temporary_address,health,religion,citizenship_number,citizenship_release_date,citizenship_release_district,created_at,updated_at")] tbl_house_owner_infos tbl_house_owner_infos,
+            string otherprofession,string prof,string othereducation, string edu, string othergender, string gen, string otherreligion, string reli)
         {
+            
             if (ModelState.IsValid)
             {
+                #region
+                if (tbl_house_owner_infos.profession == "Other")
+                {
+                    prof = otherprofession;
+                }
+                else
+                {
+                   prof = tbl_house_owner_infos.profession;
+                }
+                if (tbl_house_owner_infos.education == "Other")
+                {
+                    edu = othereducation;
+                }
+                else
+                {
+                    edu = tbl_house_owner_infos.education;
+                }
+                if (tbl_house_owner_infos.gender == "Other")
+                {
+                    gen = othergender;
+                }
+                else
+                {
+                    gen = tbl_house_owner_infos.gender;
+                }
+                if (tbl_house_owner_infos.religion == "Other")
+                {
+                    reli = otherreligion;
+                }
+                else
+                {
+                    reli = tbl_house_owner_infos.religion;
+                }
+
+                #endregion
                 db.tbl_house_owner_infos.Add(new tbl_house_owner_infos()
                 {
                     ghar_number = tbl_house_owner_infos.ghar_number,
                     full_name = tbl_house_owner_infos.full_name,
-                    education = tbl_house_owner_infos.education,
-                    profession = tbl_house_owner_infos.profession,
+                    education = edu,
+                    profession = prof,
                     mobile_number = tbl_house_owner_infos.mobile_number,
                     date_of_birth = tbl_house_owner_infos.date_of_birth,
                     birth_place = tbl_house_owner_infos.birth_place,
-                    gender = tbl_house_owner_infos.gender,
+                    gender = gen,
                     temporary_address = tbl_house_owner_infos.temporary_address,
                     health = tbl_house_owner_infos.health,
-                    religion = tbl_house_owner_infos.religion,
+                    religion = reli,
                     citizenship_number = tbl_house_owner_infos.citizenship_number,
                     citizenship_release_date = tbl_house_owner_infos.citizenship_release_date,
                     citizenship_release_district = tbl_house_owner_infos.citizenship_release_district,
                     created_at = DateTime.Now,
                     updated_at = DateTime.Now
                 });
-
-
-
-                db.tbl_house_owner_infos.Add(tbl_house_owner_infos);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

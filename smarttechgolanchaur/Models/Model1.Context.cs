@@ -32,6 +32,7 @@ namespace smarttechgolanchaur.Models
         public virtual DbSet<country> countries { get; set; }
         public virtual DbSet<custom_settings> custom_settings { get; set; }
         public virtual DbSet<email_templates> email_templates { get; set; }
+        public virtual DbSet<emergency_services> emergency_services { get; set; }
         public virtual DbSet<gallery> galleries { get; set; }
         public virtual DbSet<gallery_lang_contents> gallery_lang_contents { get; set; }
         public virtual DbSet<lang_translations> lang_translations { get; set; }
@@ -46,7 +47,6 @@ namespace smarttechgolanchaur.Models
         public virtual DbSet<oauth_clients> oauth_clients { get; set; }
         public virtual DbSet<oauth_personal_access_clients> oauth_personal_access_clients { get; set; }
         public virtual DbSet<oauth_refresh_tokens> oauth_refresh_tokens { get; set; }
-        public virtual DbSet<owner_members> owner_members { get; set; }
         public virtual DbSet<page_lang_contents> page_lang_contents { get; set; }
         public virtual DbSet<page> pages { get; set; }
         public virtual DbSet<permission> permissions { get; set; }
@@ -60,15 +60,24 @@ namespace smarttechgolanchaur.Models
         public virtual DbSet<tbl_address> tbl_address { get; set; }
         public virtual DbSet<tbl_cast> tbl_cast { get; set; }
         public virtual DbSet<tbl_education> tbl_education { get; set; }
+        public virtual DbSet<tbl_family_bank_accounts> tbl_family_bank_accounts { get; set; }
+        public virtual DbSet<tbl_family_cooking_resources> tbl_family_cooking_resources { get; set; }
+        public virtual DbSet<tbl_family_light_resources> tbl_family_light_resources { get; set; }
+        public virtual DbSet<tbl_family_toilet_resources> tbl_family_toilet_resources { get; set; }
+        public virtual DbSet<tbl_familymember_insurance> tbl_familymember_insurance { get; set; }
+        public virtual DbSet<tbl_familymember_water_resources> tbl_familymember_water_resources { get; set; }
         public virtual DbSet<tbl_gender> tbl_gender { get; set; }
         public virtual DbSet<tbl_health_condition> tbl_health_condition { get; set; }
         public virtual DbSet<tbl_house_details> tbl_house_details { get; set; }
         public virtual DbSet<tbl_house_owner_infos> tbl_house_owner_infos { get; set; }
+        public virtual DbSet<tbl_jana_pratinidhi> tbl_jana_pratinidhi { get; set; }
         public virtual DbSet<tbl_marriage_condition> tbl_marriage_condition { get; set; }
         public virtual DbSet<tbl_mothertounge> tbl_mothertounge { get; set; }
+        public virtual DbSet<tbl_owner_members> tbl_owner_members { get; set; }
         public virtual DbSet<tbl_physical_condition> tbl_physical_condition { get; set; }
         public virtual DbSet<tbl_profession> tbl_profession { get; set; }
         public virtual DbSet<tbl_religion> tbl_religion { get; set; }
+        public virtual DbSet<tbl_ward> tbl_ward { get; set; }
         public virtual DbSet<user> users { get; set; }
         public virtual DbSet<password_resets> password_resets { get; set; }
         public virtual DbSet<role_user> role_user { get; set; }

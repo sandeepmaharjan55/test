@@ -94,6 +94,18 @@
     <Property Name="created_at" Type="DateTime" />
     <Property Name="updated_at" Type="DateTime" />
   </EntityType>
+  <EntityType Name="emergency_services">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="service_name" Type="String" MaxLength="191" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contact_number" Type="Double" Nullable="false" />
+    <Property Name="service_center_latitude" Type="Double" Nullable="false" />
+    <Property Name="service_center_longitude" Type="Double" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+  </EntityType>
   <EntityType Name="gallery">
     <Key>
       <PropertyRef Name="id" />
@@ -256,29 +268,6 @@
     <Property Name="access_token_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="revoked" Type="Boolean" Nullable="false" />
     <Property Name="expires_at" Type="DateTime" />
-  </EntityType>
-  <EntityType Name="owner_members">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="owner_id" Type="Int64" />
-    <Property Name="full_name" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
-    <Property Name="gender" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
-    <Property Name="date_of_birth" Type="DateTime" />
-    <Property Name="cast" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
-    <Property Name="profession" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
-    <Property Name="profession_position" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
-    <Property Name="religion" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
-    <Property Name="education" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
-    <Property Name="living_place" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
-    <Property Name="abroad_occupation" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
-    <Property Name="health_condition" Type="Int32" />
-    <Property Name="physical_disability_condition" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
-    <Property Name="marriage_status" Type="Int32" />
-    <Property Name="language" Type="Int32" />
-    <Property Name="created_at" Type="DateTime" />
-    <Property Name="updated_at" Type="DateTime" />
   </EntityType>
   <EntityType Name="page_lang_contents">
     <Key>
@@ -447,6 +436,48 @@
     <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="education" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="tbl_family_bank_accounts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="family_bank_account" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_family_cooking_resources">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="191" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_family_light_resources">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_family_toilet_resources">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="191" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_familymember_insurance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_familymember_water_resources">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="tbl_gender">
     <Key>
       <PropertyRef Name="id" />
@@ -500,6 +531,20 @@
     <Property Name="created_at" Type="DateTime" />
     <Property Name="updated_at" Type="DateTime" />
   </EntityType>
+  <EntityType Name="tbl_jana_pratinidhi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ward_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="191" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="position" Type="String" MaxLength="191" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phone_no" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="191" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="order_by" Type="Int32" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+  </EntityType>
   <EntityType Name="tbl_marriage_condition">
     <Key>
       <PropertyRef Name="id" />
@@ -513,6 +558,29 @@
     </Key>
     <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="language" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_owner_members">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="owner_id" Type="Int64" />
+    <Property Name="full_name" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+    <Property Name="date_of_birth" Type="DateTime" />
+    <Property Name="cast" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+    <Property Name="profession" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+    <Property Name="profession_position" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+    <Property Name="religion" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+    <Property Name="education" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+    <Property Name="living_place" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+    <Property Name="abroad_occupation" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+    <Property Name="health_condition" Type="Int32" />
+    <Property Name="physical_disability_condition" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+    <Property Name="marriage_status" Type="Int32" />
+    <Property Name="language" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
   </EntityType>
   <EntityType Name="tbl_physical_condition">
     <Key>
@@ -534,6 +602,20 @@
     </Key>
     <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="religion" Type="String" MaxLength="191" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_ward">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ward_no" Type="Int32" Nullable="false" />
+    <Property Name="ward_name" Type="String" MaxLength="191" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="population" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="area" Type="Double" Nullable="false" />
+    <Property Name="ward_latitude" Type="Double" Nullable="false" />
+    <Property Name="ward_longitude" Type="Double" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
   </EntityType>
   <EntityType Name="user">
     <Key>
@@ -586,6 +668,7 @@
     <EntitySet Name="countries" EntityType="Self.country" />
     <EntitySet Name="custom_settings" EntityType="Self.custom_settings" />
     <EntitySet Name="email_templates" EntityType="Self.email_templates" />
+    <EntitySet Name="emergency_services" EntityType="Self.emergency_services" />
     <EntitySet Name="galleries" EntityType="Self.gallery" />
     <EntitySet Name="gallery_lang_contents" EntityType="Self.gallery_lang_contents" />
     <EntitySet Name="lang_translations" EntityType="Self.lang_translations" />
@@ -600,7 +683,6 @@
     <EntitySet Name="oauth_clients" EntityType="Self.oauth_clients" />
     <EntitySet Name="oauth_personal_access_clients" EntityType="Self.oauth_personal_access_clients" />
     <EntitySet Name="oauth_refresh_tokens" EntityType="Self.oauth_refresh_tokens" />
-    <EntitySet Name="owner_members" EntityType="Self.owner_members" />
     <EntitySet Name="page_lang_contents" EntityType="Self.page_lang_contents" />
     <EntitySet Name="pages" EntityType="Self.page" />
     <EntitySet Name="permissions" EntityType="Self.permission" />
@@ -614,15 +696,24 @@
     <EntitySet Name="tbl_address" EntityType="Self.tbl_address" />
     <EntitySet Name="tbl_cast" EntityType="Self.tbl_cast" />
     <EntitySet Name="tbl_education" EntityType="Self.tbl_education" />
+    <EntitySet Name="tbl_family_bank_accounts" EntityType="Self.tbl_family_bank_accounts" />
+    <EntitySet Name="tbl_family_cooking_resources" EntityType="Self.tbl_family_cooking_resources" />
+    <EntitySet Name="tbl_family_light_resources" EntityType="Self.tbl_family_light_resources" />
+    <EntitySet Name="tbl_family_toilet_resources" EntityType="Self.tbl_family_toilet_resources" />
+    <EntitySet Name="tbl_familymember_insurance" EntityType="Self.tbl_familymember_insurance" />
+    <EntitySet Name="tbl_familymember_water_resources" EntityType="Self.tbl_familymember_water_resources" />
     <EntitySet Name="tbl_gender" EntityType="Self.tbl_gender" />
     <EntitySet Name="tbl_health_condition" EntityType="Self.tbl_health_condition" />
     <EntitySet Name="tbl_house_details" EntityType="Self.tbl_house_details" />
     <EntitySet Name="tbl_house_owner_infos" EntityType="Self.tbl_house_owner_infos" />
+    <EntitySet Name="tbl_jana_pratinidhi" EntityType="Self.tbl_jana_pratinidhi" />
     <EntitySet Name="tbl_marriage_condition" EntityType="Self.tbl_marriage_condition" />
     <EntitySet Name="tbl_mothertounge" EntityType="Self.tbl_mothertounge" />
+    <EntitySet Name="tbl_owner_members" EntityType="Self.tbl_owner_members" />
     <EntitySet Name="tbl_physical_condition" EntityType="Self.tbl_physical_condition" />
     <EntitySet Name="tbl_profession" EntityType="Self.tbl_profession" />
     <EntitySet Name="tbl_religion" EntityType="Self.tbl_religion" />
+    <EntitySet Name="tbl_ward" EntityType="Self.tbl_ward" />
     <EntitySet Name="users" EntityType="Self.user" />
     <EntitySet Name="password_resets" EntityType="Self.password_resets" />
     <EntitySet Name="role_user" EntityType="Self.role_user" />
