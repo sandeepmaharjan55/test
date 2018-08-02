@@ -38,8 +38,8 @@ namespace smarttechgolanchaur.Controllers
         // GET: HouseOwnerInfo/Create
         public ActionResult Create()
         {
-            ViewBag.profession = new SelectList(db.tbl_profession, "id", "profession");
-            ViewBag.religion = new SelectList(db.tbl_religion, "id", "religion");
+            
+           
             ViewBag.health = new SelectList(db.tbl_health_condition, "id", "health_condition");
             return View();
         }

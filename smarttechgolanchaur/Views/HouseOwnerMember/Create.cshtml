@@ -1,7 +1,194 @@
 ﻿@model smarttechgolanchaur.Models.tbl_owner_members
-
+<head>
+    <script>
+    function ShowHideDiv() {
+        var selectlist = document.getElementsByClassName("selectlist");
+        var other = document.getElementsByClassName("other");
+        for (var i = 0; i < selectlist.length; i++) {
+            var len = selectlist[i].length - 1;
+            other[i].style.display = (selectlist[i].options[selectlist[i].selectedIndex].index) == len ? "block" : "none";
+        }
+    }
+    </script>
+    </head>
 @{
     ViewBag.Title = "Create";
+    //gender
+    #region
+    List<SelectListItem> gender = new List<SelectListItem>();
+    gender.Add(new SelectListItem
+    {
+        Text = "male",
+        Value = "1"
+    });
+    gender.Add(new SelectListItem
+    {
+        Text = "female",
+        Value = "2"
+    });
+    gender.Add(new SelectListItem
+    {
+        Text = "third gender",
+        Value = "3"
+    });
+    gender.Add(new SelectListItem
+    {
+        Text = "others",
+        Value = "Other"
+    });
+    #endregion
+    //caste
+    #region
+
+    List<SelectListItem> caste = new List<SelectListItem>();
+    caste.Add(new SelectListItem
+    {
+        Text = "brahmin",
+        Value = "1"
+    });
+    caste.Add(new SelectListItem
+    {
+        Text = "chhetri",
+        Value = "2"
+    });
+    caste.Add(new SelectListItem
+    {
+        Text = "janajati",
+        Value = "3"
+    });
+    caste.Add(new SelectListItem
+    {
+        Text = "aadhibashi",
+        Value = "4"
+    });
+    caste.Add(new SelectListItem
+    {
+        Text = "dalit",
+        Value = "5"
+    });
+    caste.Add(new SelectListItem
+    {
+        Text = "madhesi",
+        Value = "6"
+    });
+    caste.Add(new SelectListItem
+    {
+        Text = "muslim",
+        Value = "7"
+    });
+    caste.Add(new SelectListItem
+    {
+        Text = "others",
+        Value = "Other"
+    });
+    #endregion
+    //profession
+    #region
+    List<SelectListItem> profession = new List<SelectListItem>();
+    profession.Add(new SelectListItem
+    {
+        Text = "agriculture",
+        Value = "1"
+    });
+    profession.Add(new SelectListItem
+    {
+        Text = "job",
+        Value = "2"
+    });
+    profession.Add(new SelectListItem
+    {
+        Text = "business",
+        Value = "3"
+    });
+    profession.Add(new SelectListItem
+    {
+        Text = "labour",
+        Value = "4"
+    });
+
+    profession.Add(new SelectListItem
+    {
+        Text = "student",
+        Value = "5"
+
+    });
+    profession.Add(new SelectListItem
+    {
+        Text = "house wife",
+        Value = "6"
+    });
+    profession.Add(new SelectListItem
+    {
+        Text = "unemployed",
+        Value = "7"
+    });
+    profession.Add(new SelectListItem
+    {
+        Text = "other profession",
+        Value = "Other"
+    });
+    #endregion
+    //religion
+    #region
+    List<SelectListItem> religion = new List<SelectListItem>();
+    religion.Add(new SelectListItem
+    {
+        Text = "hindu",
+        Value = "1"
+    });
+    religion.Add(new SelectListItem
+    {
+        Text = "buddhist",
+        Value = "2"
+    });
+    religion.Add(new SelectListItem
+    {
+        Text = "muslim",
+        Value = "3"
+    });
+    religion.Add(new SelectListItem
+    {
+        Text = "kirant",
+        Value = "4"
+    });
+
+    religion.Add(new SelectListItem
+    {
+        Text = "christian",
+        Value = "5"
+
+    });
+    religion.Add(new SelectListItem
+    {
+        Text = "other religion",
+        Value = "Other"
+    });
+    #endregion
+    //education
+    #region
+    List<SelectListItem> education = new List<SelectListItem>();
+    education.Add(new SelectListItem
+    {
+        Text = "educated",
+        Value = "1"
+    });
+    education.Add(new SelectListItem
+    {
+        Text = "uneducated",
+        Value = "2"
+    });
+    education.Add(new SelectListItem
+    {
+        Text = "degree",
+        Value = "3"
+    });
+
+    education.Add(new SelectListItem
+    {
+        Text = "other degree",
+        Value = "Other"
+    });
+    #endregion
 }
 
 <h2>Create</h2>
@@ -17,7 +204,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.owner_id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-sm-2 col-sm-offset-0">
 @Html.DropDownListFor(m => m.owner_id, (SelectList)ViewBag.OwnerID, new { @class = "form-control" })
          <!--sends owner Full name's ID-->
                   @Html.ValidationMessageFor(model => model.owner_id, "", new { @class = "text-danger" })
@@ -26,71 +213,127 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.full_name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.full_name, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-sm-2 col-sm-offset-0">
+                @Html.EditorFor(model => model.full_name, new { htmlAttributes = new { @class = "form-control",@placeholder="Full Name" } })
                 @Html.ValidationMessageFor(model => model.full_name, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.gender, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
-            </div>
+            <div class="col-md-10 col-sm-offset-0">
+                
+                    @Html.DropDownListFor(model => model.gender, gender, "-- Select Gender --"
+            ,
+                      new
+                      {
+                          @class = "form-control selectlist ",
+                          @style = "width:200px;",
+                          @onchange = "javascript:ShowHideDiv();"
+                      })
+                   
+                    <div class="other" style="display: none">
+
+                        @Html.TextBox("othergender", "", htmlAttributes: new { @class = "form-control", @placeholder = "Other Gender" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+                </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.date_of_birth, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.date_of_birth, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-sm-2 col-sm-offset-0">
+                @Html.EditorFor(model => model.date_of_birth, new { htmlAttributes = new { @class = "form-control",@placeholder="MM/DD/YYYY" } })
                 @Html.ValidationMessageFor(model => model.date_of_birth, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.cast, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.cast, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cast, "", new { @class = "text-danger" })
+            <div class="col-sm-2 col-sm-offset-0">
+                @Html.DropDownListFor(model => model.cast, gender, "-- Select Caste --"
+            ,
+                      new
+                      {
+                          @class = "form-control selectlist",
+                          @style = "width:200px;",
+                          @onchange = "javascript:ShowHideDiv();"
+                      })
+                <div class="other" style="display: none">
+
+                    @Html.TextBox("othercaste", "", htmlAttributes: new { @class = "form-control", @placeholder = "Other Caste" })
+                </div>
+                   @Html.ValidationMessageFor(model => model.cast, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.profession, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.profession, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.profession, "", new { @class = "text-danger" })
+            <div class="col-sm-2 col-sm-offset-0">
+                @Html.DropDownListFor(model => model.profession, profession, "-- Select Profession --"
+            ,
+                      new
+                      {
+                          @class = "form-control selectlist",
+                          @style = "width:200px;",
+                          @onchange = "javascript:ShowHideDiv();"
+                      })
+                <div class="other" style="display: none">
+
+                    @Html.TextBox("otherprofession", "", htmlAttributes: new { @class = "form-control", @placeholder = "Other Profession" })
+                </div>
+                  @Html.ValidationMessageFor(model => model.profession, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.profession_position, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.profession_position, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-sm-2 col-sm-offset-0">
+                @Html.EditorFor(model => model.profession_position, new { htmlAttributes = new { @class = "form-control",@placeholder="Profession Position" } })
                 @Html.ValidationMessageFor(model => model.profession_position, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.religion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.religion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.religion, "", new { @class = "text-danger" })
+            <div class="col-sm-2 col-sm-offset-0">
+                @Html.DropDownListFor(model => model.religion, religion, "-- Select Religion --"
+            ,
+                      new
+                      {
+                          @class = "form-control selectlist",
+                          @style = "width:200px;",
+                          @onchange = "javascript:ShowHideDiv();"
+                      })
+                <div class="other" style="display: none">
+
+                    @Html.TextBox("otherreligion", "", htmlAttributes: new { @class = "form-control", @placeholder = "Other Religion" })
+                </div>  @Html.ValidationMessageFor(model => model.religion, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.education, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.education, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.education, "", new { @class = "text-danger" })
+            <div class="col-sm-2 col-sm-offset-0">
+@Html.DropDownListFor(model => model.education, education, "-- Select Education --"
+            ,
+                new
+                {
+                    @class = "form-control selectlist",
+                    @style = "width:200px;",
+                    @onchange = "javascript:ShowHideDiv();"
+                })
+                <div class="other" style="display: none">
+
+                    @Html.TextBox("othereducation", "", htmlAttributes: new { @class = "form-control", @placeholder = "Other Education" })
+                </div>
+                 @Html.ValidationMessageFor(model => model.education, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.living_place, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-sm-2 col-sm-offset-0">
                 @Html.EditorFor(model => model.living_place, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.living_place, "", new { @class = "text-danger" })
             </div>
@@ -98,7 +341,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.abroad_occupation, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-sm-2 col-sm-offset-0">
                 @Html.EditorFor(model => model.abroad_occupation, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.abroad_occupation, "", new { @class = "text-danger" })
             </div>
@@ -106,7 +349,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.health_condition, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-sm-2 col-sm-offset-0">
                 @Html.EditorFor(model => model.health_condition, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.health_condition, "", new { @class = "text-danger" })
             </div>
@@ -114,7 +357,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.physical_disability_condition, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-sm-2 col-sm-offset-0">
                 @Html.EditorFor(model => model.physical_disability_condition, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.physical_disability_condition, "", new { @class = "text-danger" })
             </div>
@@ -122,7 +365,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.marriage_status, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-sm-2 col-sm-offset-0">
                 @Html.EditorFor(model => model.marriage_status, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.marriage_status, "", new { @class = "text-danger" })
             </div>
@@ -130,30 +373,14 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.language, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-sm-2 col-sm-offset-0">
                 @Html.EditorFor(model => model.language, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.language, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.created_at, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.created_at, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.created_at, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.updated_at, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.updated_at, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.updated_at, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-offset-2 col-sm-2 col-sm-offset-0">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
@@ -167,3 +394,12 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+<script type="text/javascript">
+    $(function () {
+        $('#date_of_birth').datetimepicker({
+            format: "MM/DD/YYYY"
+        }).on('dp.change', function (e) {
+            $(this).data('DateTimePicker').hide();
+        })
+    })
+</script>
