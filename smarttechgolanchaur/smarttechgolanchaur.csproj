@@ -164,6 +164,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HouseDetailController.cs" />
     <Compile Include="Controllers\HouseOwnerInfoController.cs" />
+    <Compile Include="Controllers\HouseOwnerMemberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -512,6 +513,11 @@
     <Content Include="Views\HouseOwnerInfo\Details.cshtml" />
     <Content Include="Views\HouseOwnerInfo\Edit.cshtml" />
     <Content Include="Views\HouseOwnerInfo\Index.cshtml" />
+    <Content Include="Views\HouseOwnerMember\Create.cshtml" />
+    <Content Include="Views\HouseOwnerMember\Delete.cshtml" />
+    <Content Include="Views\HouseOwnerMember\Details.cshtml" />
+    <Content Include="Views\HouseOwnerMember\Edit.cshtml" />
+    <Content Include="Views\HouseOwnerMember\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
